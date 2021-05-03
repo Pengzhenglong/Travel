@@ -99,8 +99,9 @@ export default {
   width:100%
   height:0
   padding-bottom:50%
-
-.icon
+.icons
+  margin-top:.1rem
+  .icon
     position :relative
     overflow :hidden
     float:left
