@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOptions">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -16,70 +16,20 @@
 <script>
 export default {
   name: "HomeIcons",
+  props: {
+    list: Array
+  },
   data() {
     return {
-      iconList: [
-        {
-          id: "0001",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/5ffcd4a916f764f678263b27c1e2e00c.png",
-          desc: "天坛公园"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        },
-        {
-          id: "0004",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        },
-        {
-          id: "0005",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        },
-        {
-          id: "0006",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        },
-        {
-          id: "0007",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        },
-        {
-          id: "0008",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        },
-        {
-          id: "0009",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png",
-          desc: "文化古迹"
-        }
-      ]
+      swiperOptions: {
+        autoplay: false
+      }
     };
   },
   computed: {
     pages() {
       const pages = [];
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8);
         if (!pages[page]) {
           pages[page] = [];

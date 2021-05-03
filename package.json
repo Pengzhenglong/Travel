@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "fastclick": "^1.0.6",
     "swiper": "^6.5.9",
     "vue": "^2.5.2",
