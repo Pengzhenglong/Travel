@@ -49,6 +49,7 @@ export default {
       }
     }
   },
+  //mounted (载入后) 在el 被新创建的 vm.$el替换，并挂载到实例上去之后调用
   mounted() {
     this.getHomeInfo();
   }
