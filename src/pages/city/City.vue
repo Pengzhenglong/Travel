@@ -37,7 +37,7 @@ export default {
       this.letter = letter;
     }
   },
-
+  // 存放数据
   data() {
     return {
       cities: {},
@@ -45,6 +45,7 @@ export default {
       letter: ""
     };
   },
+  // 生命周期函数
   mounted() {
     this.getCityInfo();
   }
