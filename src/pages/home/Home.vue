@@ -15,6 +15,7 @@ import HomeIcons from "./components/Icons";
 import HomeRecommend from "./components/Recommend";
 import HomeWeekend from "./components/Weekend";
 import axios from "axios";
+import { mapState } from "vuex";
 export default {
   name: "Home",
   components: {
@@ -26,15 +27,19 @@ export default {
   },
   data() {
     return {
+      lastCity: "",
       swiperList: [],
       iconList: [],
       recommendList: [],
       weekendList: []
     };
   },
+  computed: {
+    ...mapState(["city"])
+  },
   methods: {
     getHomeInfo() {
-      axios.get("/api/index.json").then(this.getHomeInfoSucc);
+      axios.get("/api/index.json?city=" + this.city).then(this.getHomeInfoSucc);
     },
     getHomeInfoSucc(res) {
       res = res.data;
@@ -50,7 +55,15 @@ export default {
   },
   //mounted (载入后) 在el 被新创建的 vm.$el替换，并挂载到实例上去之后调用
   mounted() {
+    this.lastCity = this.city;
     this.getHomeInfo();
+  },
+  //页面重新显示会加载
+  activated() {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city;
+      this.getHomeInfo();
+    }
   }
 };
 </script>
