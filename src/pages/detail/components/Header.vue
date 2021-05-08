@@ -37,6 +37,9 @@ export default {
   activated() {
     //绑定了一个scroll事件，一旦它被执行，this.handleScroll方法会被执行
     window.addEventListener("scroll", this.handleScroll);
+  },
+  deactivated() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
