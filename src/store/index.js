@@ -7,11 +7,5 @@ Vue.use(Vuex)
 
 export default  new  Vuex.Store({
     state,
-    // actions:{
-    //     changeCity(ctx,city){
-    //             // console.log(city)
-    //             ctx.commit('changeCity',city)
-    //     }
-    // },
     mutations
 })
